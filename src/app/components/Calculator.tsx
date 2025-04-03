@@ -282,14 +282,14 @@ export default function Calculator() {
           </div>
           
           {/* 감정 표현 (입 부분) - 글자 아래로 이동 */}
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-5xl">
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-5xl z-10">
             {getEmotionFace()}
           </div>
         </div>
       </div>
       
       {/* 공룡 몸통 (계산기 메인 부분) */}
-      <div className="bg-green-500 dark:bg-green-600 p-4 pt-10"> {/* 패딩 상단 추가 */}
+      <div className="bg-green-500 dark:bg-green-600 p-4 pt-10 relative z-0"> 
         <div className="bg-white dark:bg-gray-800 rounded-lg p-2 mb-2 min-h-10 text-right text-gray-800 dark:text-gray-200 overflow-hidden break-all shadow-inner">
           {input || '0'}
         </div>
@@ -349,7 +349,7 @@ export default function Calculator() {
               ))}
             </div>
             
-            <div className="col-span-4 grid grid-cols-4 gap-1">
+            <div className="col-span-4 grid grid-cols-4 gap-1 relative z-20">
               {scientificButtons.map((btn) => (
                 <button
                   key={btn}
@@ -373,7 +373,7 @@ export default function Calculator() {
       </div>
       
       {/* 공룡 꼬리 - z-index 조정 */}
-      <div className="absolute -right-8 top-1/2 w-20 h-12 bg-green-600 dark:bg-green-700 rounded-r-full transform rotate-12 -z-10"></div>
+      <div className="absolute -right-8 top-1/2 w-20 h-12 bg-green-600 dark:bg-green-700 rounded-r-full transform rotate-12 z-0"></div>
       
       {/* 계산 기록 */}
       {history.length > 0 && (
