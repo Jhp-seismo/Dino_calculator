@@ -81,7 +81,7 @@ export default function Calculator() {
         if (result) {
           try {
             setMemory(parseFloat(result));
-          } catch (e) {
+          } catch (_) {
             console.error('Cannot store in memory');
           }
         }
@@ -98,7 +98,7 @@ export default function Calculator() {
         if (memory !== null && result) {
           try {
             setMemory(memory + parseFloat(result));
-          } catch (e) {
+          } catch (_) {
             console.error('Cannot add to memory');
           }
         }
@@ -107,7 +107,7 @@ export default function Calculator() {
         if (memory !== null && result) {
           try {
             setMemory(memory - parseFloat(result));
-          } catch (e) {
+          } catch (_) {
             console.error('Cannot subtract from memory');
           }
         }
@@ -124,7 +124,7 @@ export default function Calculator() {
   const calculateResult = () => {
     try {
       // Replace certain tokens for evaluation
-      let expression = input
+      const expression = input
         .replace(/Math\.PI/g, '(' + Math.PI + ')')
         .replace(/Math\.E/g, '(' + Math.E + ')');
 
@@ -145,7 +145,7 @@ export default function Calculator() {
       } else {
         setEmotion('happy');
       }
-    } catch (error) {
+    } catch (_) {
       setResult('Error');
       setEmotion('confused');
     }
@@ -177,7 +177,7 @@ export default function Calculator() {
         
         setResult(String(result));
         setInput(`${func}(${input})`);
-      } catch (error) {
+      } catch (_) {
         setResult('Error');
         setEmotion('confused');
       }
@@ -207,7 +207,7 @@ export default function Calculator() {
         
         setResult(String(factorial));
         setInput(`${input}!`);
-      } catch (error) {
+      } catch (_) {
         setResult('Error');
         setEmotion('confused');
       }
